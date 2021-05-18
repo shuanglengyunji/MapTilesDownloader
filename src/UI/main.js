@@ -136,6 +136,9 @@ $(function() {
 			startDrawing();
 		})
 
+		$("#update-region-button").click(function() {
+			updateRegion();
+		})
 	}
 
 	function startDrawing() {
@@ -145,6 +148,33 @@ $(function() {
 
 		M.Toast.dismissAll();
 		M.toast({html: 'Click two points on the map to make a rectangle.', displayLength: 7000})
+	}
+
+	function updateRegion() {
+		removeGrid();
+		draw.deleteAll();
+
+		use_coordinate = true;
+		
+		var lat_min = Math.min(parseFloat($("#lat-from-box").val()), parseFloat($("#lat-to-box").val()));
+		var lat_max = Math.max(parseFloat($("#lat-from-box").val()), parseFloat($("#lat-to-box").val()));
+		var long_min = Math.min(parseFloat($("#long-from-box").val()), parseFloat($("#long-to-box").val()));
+		var long_max = Math.max(parseFloat($("#long-from-box").val()), parseFloat($("#long-to-box").val()));
+
+		var feature = { 
+			type: 'Polygon', 
+			coordinates: [[
+				[long_min, lat_max], 
+				[long_max, lat_max], 
+				[long_max, lat_min], 
+				[long_min, lat_min],
+				[long_min, lat_max]
+			]]
+		};
+		draw.add(feature);
+
+		M.Toast.dismissAll();
+		M.toast({html: 'Region updated.', displayLength: 7000})
 	}
 
 	function initializeGridPreview() {
@@ -258,6 +288,7 @@ $(function() {
 	function getGrid(zoomLevel) {
 
 		var bounds = getBounds();
+		console.log(bounds)
 
 		var rects = [];
 

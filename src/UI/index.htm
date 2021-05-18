@@ -60,12 +60,45 @@
 			2
 		</div>
 		<div class="step-title">
-			Select a Region
+			Option 1: Select a Region
 		</div>
 
 		<div class='center-align sidebar-section'>
 			<p>
 				<a class="waves-effect waves-light z-depth-0 btn-small orange darken-3" id='rectangle-draw-button'>Draw a rectangle</a>
+			</p>
+		</div>
+
+		<div class='step-number'>
+			2
+		</div>
+		<div class="step-title">
+			Option 2: Use coordinate
+		</div>
+
+		<div class='center-align sidebar-section'>
+			<div class="row">
+				<div class="input-field col s6">
+					<input id='lat-from-box' type="text" value='-89.9'/>
+					<label for="lat-from-box" class="active">Latitude from:</label>
+				</div>
+				<div class="input-field col s6">
+					<input id='lat-to-box' type="text" value='89.9'/>
+					<label for="lat-to-box" class="active">Latitude to:</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input id='long-from-box' type="text" value='-179.9'/>
+					<label for="long-from-box" class="active">Longitude from:</label>
+				</div>
+				<div class="input-field col s6">
+					<input id='long-to-box' type="text" value='179.9'/>
+					<label for="long-to-box" class="active">Longitude to:</label>
+				</div>
+			</div>
+			<p>
+				<a class="waves-effect waves-light z-depth-0 btn-small orange darken-3" id='update-region-button'>Update Region</a>
 			</p>
 		</div>
 
@@ -79,11 +112,11 @@
 		<div class='sidebar-section'>
 			<div class="row">
 				<div class="input-field col s6">
-					<input id="zoom-from-box" type="text" value='15'/>
+					<input id="zoom-from-box" type="text" value='0'/>
 					<label for="zoom-from-box" class="active">Zoom from:</label>
 				</div>
 				<div class="input-field col s6">
-					<input id="zoom-to-box" type="text" value='15'/>
+					<input id="zoom-to-box" type="text" value='7'/>
 					<label for="zoom-to-box" class="active">Zoom to:</label>
 				</div>
 			</div>
